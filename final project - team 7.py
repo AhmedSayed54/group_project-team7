@@ -16,7 +16,6 @@ def position(x_cm, y_cm):
   
 pygame.display.set_caption('Image')  
   
-mouse = pygame.image.load('mouse.jpg')
 
 
 
@@ -62,11 +61,18 @@ for i in range(5):
 
 position(x_cm, y_cm)
 
-player = mouse.get_rect()
+
+
 
 end = pygame.draw.rect(display_surface,(0,255,0),[600,353,80,80])
 
+mouse = pygame.image.load('mouse.jpg')
+mouse_t = pygame.transform.scale(mouse, (5,5))
+rect = mouse.get_rect()
+display_surface.blit(mouse, (rect.x,rect.y))
+
 while True:
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
